@@ -120,6 +120,7 @@
   #cover{background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%); overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center;}
   .wm::after{content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:520px; height:520px; background:url('logo.png') center/contain no-repeat; opacity:.4; z-index:0; pointer-events:none;}
   .cover-watermark{position:absolute; top:50%; left:calc(50% - 136px); transform:translate(-50%,-50%); width:520px; height:520px; background:url('logo.png') center/contain no-repeat; opacity:.5; z-index:0; pointer-events:none;}
+  #p3::after{opacity:.25;}
   .cover-clouds{position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1;}
   .cloud{position:absolute; filter:blur(9px);
     background:radial-gradient(closest-side,
@@ -303,7 +304,7 @@
   </section>
 
   <!-- 3 因果不昧 ( 續 ) -->
-  <section class="slide center teaching-slide wm">
+  <section class="slide center teaching-slide wm" id="p3">
     <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
     <div class="teaching teaching--wide">
       <div class="teaching-title">因果不昧 ( 續 )</div>
