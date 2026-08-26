@@ -118,7 +118,8 @@
 
   /* ---- cover: 白底，還願精舍置頂、葉子在右、標題置中 ---- */
   #cover{background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%); overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center;}
-  #cover::after{content:""; position:absolute; top:50%; left:calc(50% - 136px); transform:translate(-50%,-50%); width:520px; height:520px; background:url('logo.png') center/contain no-repeat; opacity:.5; z-index:0; pointer-events:none;}
+  .wm::after{content:""; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:420px; height:420px; background:url('logo.png') center/contain no-repeat; opacity:.3; z-index:0; pointer-events:none;}
+  #cover::after{left:calc(50% - 136px); opacity:.5; width:520px; height:520px;}
   .cover-clouds{position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1;}
   .cloud{position:absolute; filter:blur(9px);
     background:radial-gradient(closest-side,
@@ -290,7 +291,7 @@
   </section>
 
   <!-- 2 因果不昧 -->
-  <section class="slide center teaching-slide">
+  <section class="slide center teaching-slide wm">
     <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
     <div class="teaching">
       <div class="teaching-title">因果不昧</div>
