@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>黃石公園之行說法 — 永定法師及李孝蓮等之鐵案</title>
+<style>
+  :root{
+    --gold:#b8942e; --gold-lt:#d4a853; --cream:#faf7f0; --brown:#4a3520; --ink:#2c2013; --red:#8c2f2f;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html,body{height:100%;}
+  body{
+    font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;
+    background:radial-gradient(1200px 800px at 50% -10%, #ffe9c2 0%, #f4e6cf 45%, #efe0c6 100%);
+    color:var(--ink);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden; line-height:1.75; user-select:none;
+  }
+  .deck{position:relative; width:min(1080px,96vw); height:min(620px,88vh);
+    filter:drop-shadow(0 22px 45px rgba(74,53,32,.28)); border-radius:18px; overflow:hidden;}
+  .slide{position:absolute; inset:0; padding:56px 74px; display:flex; flex-direction:column;
+    background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%);
+    border:1px solid rgba(184,148,46,.35);
+    opacity:0; transform:translateX(40px) scale(.98); transition:.6s ease; pointer-events:none;}
+  .slide.active{opacity:1; transform:none; pointer-events:auto;}
+  /* decorative gold top border */
+  .slide::before{content:""; position:absolute; left:0; right:0; top:0; height:8px;
+    background:linear-gradient(90deg,transparent,var(--gold-lt),var(--gold),var(--gold-lt),transparent);}
+  .slide::after{content:""; position:absolute; inset:14px; border:1px solid rgba(184,148,46,.28);
+    border-radius:12px; pointer-events:none;}
+  .pg-header{position:absolute; top:20px; left:30px; z-index:3; pointer-events:none;
+    font-size:16px; letter-spacing:.08em; color:#a98f5e; font-weight:600;
+    display:flex; align-items:center; gap:8px;}
+  .pg-header::before{content:""; width:7px; height:7px; background:var(--gold);
+    transform:rotate(45deg); border-radius:2px; flex:0 0 auto;}
+  .page-num{position:absolute; bottom:16px; left:50%; transform:translateX(-50%);
+    z-index:3; pointer-events:none; font-size:13px; letter-spacing:.06em; color:#a98f5e; font-weight:600;}
+  .kicker{font-size:14px; letter-spacing:.35em; color:var(--gold); text-transform:uppercase;
+    border-bottom:1px solid rgba(184,148,46,.35); padding-bottom:10px; margin-bottom:26px; display:flex; align-items:center; gap:12px;}
+  .kicker .dot{width:9px;height:9px;border-radius:50%;background:var(--gold);}
+  h1{font-size:46px; font-weight:700; color:var(--brown); line-height:1.35;}
+  h1 .sub{font-size:22px; font-weight:400; color:var(--gold); margin-top:8px; display:block;}
+  h2{font-size:32px; color:var(--brown); margin-bottom:8px;}
+  .center{justify-content:center; align-items:center; text-align:center;}
+  p{font-size:21px; color:#4a3a28;}
+  li{font-size:20px; margin:8px 0 0 26px; color:#4a3a28;}
+  .orn{width:170px; height:26px; margin:18px auto 0;}
+  .orn path{stroke:var(--gold-lt); fill:none; stroke-width:2;}
+  .lead{font-size:23px; color:var(--brown);}
+  .note{font-size:14px; margin-top:22px; color:#9a8a6f; font-style:italic;}
+  .quote{font-size:23px; color:var(--brown); font-style:italic; border-left:4px solid var(--gold);
+    padding:14px 22px; background:rgba(212,168,83,.12); border-radius:8px;}
+  .teaching{width:100%; border:1px solid rgba(184,148,46,.45); border-radius:16px;
+    background:rgba(212,168,83,.08); padding:34px 40px; text-align:center;}
+  .teaching-title{font-size:40px; font-weight:800; color:var(--brown); letter-spacing:.08em;
+    padding-bottom:16px; margin-bottom:20px; border-bottom:1px solid rgba(184,148,46,.35);}
+  .teaching-body{max-width:700px; margin:0 auto;}
+  .teaching-line{font-size:21px; color:#4a3a28; line-height:2.1; text-align:justify;}
+  .teaching--wide{width:min(860px,100%); padding:22px 44px;}
+  .teaching-slide{padding:34px 46px; justify-content:center;}
+  #p4{flex-direction:column; justify-content:center; gap:14px;}
+  .p4-title{font-size:38px; font-weight:800; color:#7c2b12; letter-spacing:.1em; text-align:center;}
+  .imgtext{display:flex; gap:44px; align-items:center; justify-content:center; width:100%;}
+  .imgtext-fig{flex:0 0 auto; display:flex; align-items:center; transform:translateY(-24px);}
+  .imgtext-fig img{max-height:400px; width:auto; border-radius:14px;
+    border:1px solid rgba(184,148,46,.4); box-shadow:0 14px 30px rgba(74,53,32,.2);}
+  .imgtext-body{flex:0 1 560px; display:flex; align-items:center; justify-content:center;
+    background:rgba(212,168,83,.10); border:1px solid rgba(184,148,46,.35); border-radius:16px;
+    padding:34px 34px;}
+  .p4-note{font-size:22px; line-height:1.9; color:#4a3a28; text-align:center;}
+  .cpt{width:min(940px,100%); padding:28px 44px; transform:translateY(-12px);}
+  .cpt .teaching-body{max-width:none; text-align:left;}
+  .cpt-group{display:flex; flex-direction:column; gap:14px;}
+  .cpt-sub{display:flex; align-items:center; gap:10px; font-size:21px; font-weight:700; color:#7c2b12;}
+  .cpt-mark{width:11px; height:11px; border-radius:3px; background:var(--gold); transform:rotate(45deg);}
+  .cpt-item{font-size:18px; line-height:1.85; color:#4a3a28; text-align:justify;}
+  .cpt-num{font-size:18px; line-height:1.85; color:#4a3a28; padding-left:4px;}
+  .cpt-num .num{color:var(--gold); font-weight:700; margin-right:8px;}
+  .tiger-float{float:right; width:200px; margin:6px 0 10px 18px; border-radius:12px;
+    border:1px solid rgba(184,148,46,.45); box-shadow:0 10px 22px rgba(74,53,32,.22);}
+  .cpt-close{font-size:21px; font-weight:700; color:#7c2b12; text-align:center; margin-top:20px;}
+  .teaching-note{font-size:20px; color:#4a3a28; line-height:2; text-align:justify;
+    background:rgba(212,168,83,.14); border-left:4px solid var(--gold); padding:14px 20px; border-radius:8px;}
+  .teaching-space{height:10px;}
+  .two{display:flex; gap:20px; justify-content:center; margin-top:4px;}
+  .type-card{flex:0 1 240px; background:rgba(212,168,83,.12); border:1px solid rgba(184,148,46,.3);
+    border-radius:12px; padding:12px 16px; text-align:left;}
+  .type-card .num{color:var(--gold); font-weight:700; margin-right:8px;}
+  .type-card span{font-size:20px; color:#4a3a28;}
+  .lotus{width:90px; height:auto; opacity:.9;}
+  .grid{display:grid; grid-template-columns:1fr 1fr; gap:26px; margin-top:6px;}
+  .card{background:rgba(212,168,83,.10); border:1px solid rgba(184,148,46,.25); border-radius:12px; padding:18px 20px;}
+  .card h3{color:var(--gold); font-size:19px; margin-bottom:6px;}
+  .card p{font-size:18px;}
+  /* nav */
+  .nav{position:absolute; bottom:26px; left:50%; transform:translateX(-50%); display:flex; gap:10px; align-items:center;}
+  .dot-btn{width:11px;height:11px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer;}
+  .dot-btn.on{background:var(--gold);}
+  .arrow{position:absolute; top:50%; transform:translateY(-50%); width:52px;height:52px;border-radius:50%;
+    border:1px solid var(--gold); background:rgba(255,253,246,.7); color:var(--gold); font-size:24px;
+    cursor:pointer; z-index:5; display:flex; align-items:center; justify-content:center; transition:.2s;}
+  .arrow:hover{background:var(--gold); color:#fff;}
+  .arrow.prev{left:22px;} .arrow.next{right:22px;}
+  .hint{position:absolute; bottom:26px; right:36px; font-size:12px; color:#a99a7e;}
+  .footer-txt{position:absolute; bottom:26px; left:36px; font-size:12px; color:#a99a7e;}
+
+  /* ---- cover: 白底，還願精舍置頂、葉子在右、標題置中 ---- */
+  #cover{background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%); overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center;}
+  .cover-clouds{position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1;}
+  .cloud{position:absolute; filter:blur(9px);
+    background:radial-gradient(closest-side,
+      rgba(212,168,83,.28) 0%, rgba(216,190,140,.22) 40%, rgba(216,190,140,0) 100%);
+    border-radius:50%;}
+  .cloud.c1{width:340px; height:170px; left:6%; top:12%;}
+  .cloud.c2{width:420px; height:200px; left:34%; top:6%; opacity:.8;}
+  .cloud.c3{width:300px; height:150px; left:14%; top:58%; opacity:.7;}
+  .cloud.c4{width:360px; height:180px; right:30%; top:26%; opacity:.5;}
+  .cloud.c5{width:340px; height:170px; right:6%; top:10%; opacity:.75;}
+  .cloud.c6{width:280px; height:150px; right:10%; top:60%; opacity:.6;}
+  .brand-top{position:absolute; top:96px; left:50%; transform:translateX(-50%) translateX(-150px); width:240px; pointer-events:none; opacity:.82; filter:saturate(.9);}
+  .leaf-right{position:absolute; right:120px; top:50%; transform:translateY(-50%); width:330px; opacity:.97; pointer-events:none;}
+  .cover-main{position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; transform:translateX(-150px) translateY(56px);}
+  .cover-title{font-size:52px; font-weight:800; color:#7c2b12; letter-spacing:.06em; text-shadow:0 1px 0 rgba(255,255,255,.3);}
+  .cover-title-sub{font-size:24px; color:#6d3e1e; margin-top:12px; letter-spacing:.1em; font-weight:600;}
+  .cover-meta{margin-top:14px; font-size:14px; color:#8a6a3a; letter-spacing:.28em;}
+  #cover .orn{margin-top:16px;}
+  #cover .orn path{stroke:#7c2b12;}
+  #cover .footer-txt{color:#8a6a3a;}
+  #p7{flex-direction:column; justify-content:center; gap:12px; padding:22px 74px;}
+  .master{width:min(940px,100%); display:flex; flex-direction:column; align-items:center; gap:12px;}
+  .master-title{font-size:36px; font-weight:800; color:#7c2b12; letter-spacing:.12em;}
+  .master-img{width:100%; max-height:385px; object-fit:contain; border-radius:14px;
+    border:1px solid rgba(184,148,46,.4); box-shadow:0 14px 30px rgba(74,53,32,.2);}
+  .master-src{font-size:17px; font-style:italic; color:#7c5a2e; letter-spacing:.03em; text-align:center;}
+  #p8{flex-direction:column; align-items:center; justify-content:center; gap:14px; padding:22px 60px;}
+  .flow{width:min(1000px,100%); display:flex; flex-direction:column; align-items:center; gap:14px;}
+  .flow-title{font-size:36px; font-weight:800; color:#7c2b12; letter-spacing:.12em; margin-bottom:4px;}
+  .flow-wrap{display:flex; gap:26px; align-items:center; justify-content:center; width:100%;}
+  .flow-left{flex:0 0 400px; display:flex; flex-direction:column; gap:16px;}
+  .flow-left img{width:100%; height:auto; border-radius:12px;
+    border:1px solid rgba(184,148,46,.4); box-shadow:0 12px 24px rgba(74,53,32,.2);}
+  .flow-right{flex:1; min-width:0; display:flex; flex-direction:column; align-items:center;}
+  .timeline{position:relative; width:100%; padding:6px 0;}
+  .timeline::before{content:""; position:absolute; left:50%; top:6px; bottom:6px; width:3px;
+    background:linear-gradient(180deg, var(--gold-lt), var(--gold));}
+  .titem{position:relative; width:50%; min-height:40px; margin-bottom:8px;}
+  .titem:nth-child(odd){left:0; text-align:right; padding-right:30px;}
+  .titem:nth-child(even){left:50%; text-align:left; padding-left:30px;}
+  .ttext{display:inline-block; background:rgba(212,168,83,.14); border:1px solid rgba(184,148,46,.5);
+    border-radius:10px; padding:7px 14px; font-size:16px; color:#4a3a28;}
+  .titem:first-child .ttext{border-color:#b8942e;}
+  .titem:last-child .ttext{background:rgba(212,168,83,.06); color:#6d3e1e;}
+  .tdot{position:absolute; top:50%; transform:translateY(-50%); width:26px; height:26px; border-radius:50%;
+    background:#7c2b12; color:#fff; font-size:13px; font-weight:700; display:flex; align-items:center; justify-content:center;}
+  .titem:nth-child(odd) .tdot{right:-13px;}
+  .titem:nth-child(even) .tdot{left:-13px;}
+  .tbadge{display:inline-block; margin:6px 4px 0; padding:4px 12px; border-radius:999px;
+    font-size:14px; font-weight:700; letter-spacing:.05em; line-height:1.4; color:#fff;
+    white-space:nowrap; writing-mode:horizontal-tb;}
+  .badge-puti{background:linear-gradient(180deg,#d4a853,#b8942e); border:1px solid #a8811f;
+    box-shadow:0 2px 6px rgba(184,148,46,.45);}
+  .badge-sheng{background:linear-gradient(180deg,#a63a3a,#8c2f2f); border:1px solid #7c2b12;
+    box-shadow:0 2px 6px rgba(140,47,47,.4);}
+  .badge-zheng{background:linear-gradient(180deg,#3f7fc9,#2f63ad); border:1px solid #28518f;
+    box-shadow:0 2px 6px rgba(47,99,173,.4);}
+  .detail.vtext.narrow{width:220px;}
+  .detail.vtext.narrow .vtxt{font-size:18px; letter-spacing:.03em;}
+  .detail.vtext.w6{width:400px; flex-direction:row; gap:24px; align-items:center;}
+  .detail.vtext.w6 .vtxt{font-size:18px; letter-spacing:.03em;}
+  .d11 .detail .vtxt{font-size:18px; letter-spacing:.03em;}
+  
+  
+    .d11{display:grid; grid-template-columns:auto auto auto auto auto;
+    align-items:start; justify-items:center; column-gap:12px; row-gap:12px;}
+  .d11 .hnode{padding:8px 14px; gap:8px;}
+  .d11 .htext{font-size:17px;}
+  .d11 .tbadge{font-size:13px; padding:3px 9px; margin-top:0;}
+  .d11 .hnode{padding:8px 14px; gap:8px;}
+  .d11 .htext{font-size:17px;}
+  .d11 .tbadge{font-size:13px; padding:3px 9px; margin-top:0;}
+  .dcell{display:flex; flex-direction:column; align-items:center; position:relative;}
+  #p9{flex-direction:column; align-items:center; justify-content:flex-start; gap:0; padding:50px 70px 0;}
+  .p9{display:flex; flex-direction:column; align-items:center; gap:0; width:100%;}
+  .p9-title{font-size:36px; font-weight:800; color:#7c2b12; letter-spacing:.12em; margin-bottom:22px;}
+  .p12-sum{flex:1; padding:18px 22px; text-align:left; align-items:stretch;}
+  .hnode{display:flex; align-items:center; gap:10px; background:rgba(212,168,83,.12);
+    border:1px solid rgba(184,148,46,.5); border-radius:12px; padding:11px 20px;}
+  .hrow{display:flex; align-items:flex-start; gap:18px; justify-content:center;}
+  .hcol{display:flex; flex-direction:column; align-items:center; gap:0; position:relative;}
+  .harrow{width:46px; height:0; border-top:3px solid var(--gold); position:relative; flex:0 0 auto; margin-top:24px;}
+  .hmore{margin-top:18px; font-size:22px; color:#b8942e; font-weight:700; letter-spacing:.1em;}
+  .harrow::after{content:""; position:absolute; right:-1px; top:-8px;
+    border-left:11px solid var(--gold); border-top:7px solid transparent; border-bottom:7px solid transparent;}
+  .hnum{width:28px; height:28px; border-radius:50%; background:#7c2b12; color:#fff; font-weight:700;
+    font-size:15px; display:flex; align-items:center; justify-content:center; flex:0 0 auto;}
+  .htext{font-size:21px; font-weight:700; color:#4a3520;}
+  .hdn{width:0; height:26px; border-left:3px solid var(--gold); position:relative;}
+  .hdn::after{content:""; position:absolute; left:-8px; bottom:-2px;
+    border-left:7px solid transparent; border-right:7px solid transparent; border-top:11px solid var(--gold);}
+  .detail{position:absolute; top:calc(100% + 6px); left:50%; transform:translateX(-50%);
+    width:300px; background:rgba(212,168,83,.08);
+    border:1px solid rgba(184,148,46,.4); border-radius:14px; padding:16px 20px;
+    display:flex; flex-direction:column; gap:6px; text-align:left;}
+  .dname{font-size:20px; font-weight:700; color:#7c2b12; margin-bottom:4px;}
+  .ditem{font-size:18px; line-height:1.6; color:#4a3a28;}
+  .darrow{font-size:19px; line-height:1.6; color:#7c2b12; font-weight:700; margin-top:6px;}
+  .detail.vtext{width:340px; padding:14px 12px;
+    display:flex; align-items:center; justify-content:center;}
+  .detail.imgs{flex-direction:row; gap:18px; padding:16px 20px; width:auto;}
+  .detail.imgs img{width:472px; height:auto; border-radius:10px;
+    border:1px solid rgba(184,148,46,.45); box-shadow:0 10px 22px rgba(74,53,32,.2);}
+  .imgbox{display:flex; gap:18px; justify-content:center; margin-top:16px; width:100%;}
+  .imgbox img{width:470px; height:auto; border-radius:12px;
+    border:1px solid rgba(184,148,46,.45); box-shadow:0 12px 26px rgba(74,53,32,.22);}
+  .imgquote{margin-top:16px; font-size:21px; font-style:italic; color:#7c2b12; font-weight:700; text-align:center;}
+  #p10{flex-direction:column; align-items:center; justify-content:flex-start; gap:0; padding:50px 36px 0;}
+  #p11{flex-direction:column; align-items:center; justify-content:flex-start; gap:0; padding:50px 70px 0;}
+  .vtxt{writing-mode:vertical-rl; height:300px; font-size:17px; line-height:1.85;
+    letter-spacing:.06em; color:#4a3a28; text-align:start;}
+  .vred{color:#7c2b12; font-weight:700;}
+  .vnum{color:#a8791c; font-weight:700;}
+  .vpara{margin:0 0 0 16px;}
+  .flow-down{width:100%; display:flex; justify-content:flex-end; padding-right:172px; height:30px;}
+  .flow-arrow-v{display:inline-block; width:0; height:30px; border-left:3px solid var(--gold);
+    border-right:0; position:relative;}
+  .flow-arrow-v::after{content:""; position:absolute; left:-8px; bottom:-2px;
+    border-left:7px solid transparent; border-right:7px solid transparent; border-top:11px solid var(--gold);}
+  .flow-row{display:flex; align-items:center; justify-content:center; gap:8px; flex-wrap:wrap;}
+  .node{background:rgba(212,168,83,.14); border:1px solid rgba(184,148,46,.5);
+    border-radius:12px; padding:12px 18px; font-size:19px; line-height:1.5; color:#4a3a28;
+    display:flex; align-items:center; gap:8px;}
+  .node .num{color:#7c2b12; font-weight:700; font-size:18px;}
+  .arrow-right{display:inline-block; width:44px; height:0; border-top:3px solid var(--gold);
+    position:relative; flex:0 0 auto;}
+  .arrow-right::after{content:""; position:absolute; right:-1px; top:-8px;
+    border-left:11px solid var(--gold); border-top:7px solid transparent; border-bottom:7px solid transparent;}
+  .arrow-left{display:inline-block; width:44px; height:0; border-top:3px solid var(--gold);
+    position:relative; flex:0 0 auto;}
+  .arrow-left::after{content:""; position:absolute; left:-1px; top:-8px;
+    border-right:11px solid var(--gold); border-top:7px solid transparent; border-bottom:7px solid transparent;}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+  <!-- 1 封面 -->
+  <section class="slide" id="cover">
+    <div class="cover-clouds">
+      <span class="cloud c1"></span><span class="cloud c2"></span>
+      <span class="cloud c3"></span><span class="cloud c4"></span>
+      <span class="cloud c5"></span><span class="cloud c6"></span>
+    </div>
+    <img class="brand-top" src="gem_text_t.png" alt="還願精舍">
+    <img class="leaf-right" src="gem_leaf_t.png" alt="">
+    <div class="cover-main">
+      <h1 class="cover-title">黃石公園之行說法</h1>
+      <p class="cover-title-sub">第四卷 永定法師及李孝蓮等之鐵案</p>
+      <svg class="orn" viewBox="0 0 170 40">
+        <path d="M5 20 H65 M105 20 H165"/>
+        <path d="M85 8 C80 8 72 16 72 22 C72 28 80 32 85 32 C90 32 98 28 98 22 C98 16 90 8 85 8 Z" fill="none" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M85 12 C82 16 85 24 85 28" fill="none" stroke="currentColor" stroke-width="1"/>
+        <path d="M79 14 C78 18 82 24 83 27" fill="none" stroke="currentColor" stroke-width="0.8"/>
+        <path d="M91 14 C92 18 88 24 87 27" fill="none" stroke="currentColor" stroke-width="0.8"/>
+      </svg>
+      <p class="cover-meta">還願精舍 · HUAN YUAN ABODE</p>
+    </div>
+    <p class="footer-txt"></p>
+  </section>
+
+  <!-- 2 因果不昧 -->
+  <section class="slide center teaching-slide">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="teaching">
+      <div class="teaching-title">因果不昧</div>
+      <div class="teaching-body">
+        <p class="teaching-line">我們每一天每一時，無論是什麼樣的修行人，都會有不好的現象產生也有好的現象產生，這就叫做因果不昧的道理。往昔之中造下的種種罪業，哪怕就是大菩薩造下的罪業都得要償還，正因為要償還，就叫因果不昧。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 因果不昧 ( 續 ) -->
+  <section class="slide center teaching-slide">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="teaching teaching--wide">
+      <div class="teaching-title">因果不昧 ( 續 )</div>
+      <div class="teaching-body">
+        <p class="teaching-line">--- 密乘戒律當中規定，任何人吃了眾生的肉都得要還的。</p>
+        <div class="teaching-space"></div>
+        <p class="teaching-line">凡夫和聖者的償還是有差異的。</p>
+        <div class="teaching-note">--- 聖者的償還如脫一件衣服給你，你對那個衣子千刀剮無所謂，對祂沒有損傷的。</div>
+        <div class="teaching-space"></div>
+        <p class="teaching-line">只有兩種人不怕：</p>
+        <div class="two">
+          <div class="type-card"><span class="num">1)</span><span>明心見性。</span></div>
+          <div class="type-card"><span class="num">2)</span><span>修行儀軌觀。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 因果不昧 ( 續 ) --- 圖文 -->
+  <section class="slide center teaching-slide" id="p4">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="p4-title">因果不昧 ( 續 )</div>
+    <div class="imgtext">
+      <figure class="imgtext-fig">
+        <img src="ChatGPT Image 2026年8月23日 CF_DOWN_4-3-2-1.png" alt="因果不昧四格圖">
+      </figure>
+      <div class="imgtext-body">
+        <p class="p4-note">--- 無明的因，是隨時都會有的，但大部份的時間都在償報。在償報的過程中，隨時有雜系的新的因緣又摻進來，隨時都有的，由於有因，馬上種下產生緣起的和合，自然就結成果，是由因顯果的。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 知見問題 -->
+  <section class="slide center teaching-slide">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="teaching cpt" style="margin-top:20px;">
+      <div class="teaching-title">知見問題</div>
+      <div class="teaching-body">
+        <div class="cpt-group">
+          <div class="cpt-sub"><span class="cpt-mark"></span>天主派的王國</div>
+          <p class="cpt-item">教化大家，我們是學佛、是修行，是佛的弟子，六道眾生都是自己的親人，何況他們是六道眾生裡頭很善良的。天主教也好，基督教也好，都是教人為善的，只是知見不正。知見不正得慢慢來，慢慢學。</p>
+          <p class="cpt-item">衍生另一個知見問題：有些學佛的人說：「天人算老幾？他根本沒有把他放在心上，什麼天人啊!」 佛陀問他說：「那你把誰放心上呢？」那人回答，「當然眾生囉!」</p>
+        </div>
+        <div class="teaching-note">--- 佛陀說：「天人是眾生裡頭最值得尊重的一道眾生，天人過了才是人道，你把最好的反而不放在眼裡!」</div>
+        <p class="cpt-close">因此告訴了我們，修行學佛一定要有正知正見。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 說法時睡覺的弟子 -->
+  <section class="slide center teaching-slide">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="teaching cpt">
+      <div class="teaching-title">說法時睡覺的弟子</div>
+      <div class="teaching-body">
+        <div class="cpt-group">
+          <div class="cpt-sub"><span class="cpt-mark"></span>佛陀在說法 (護法打架的事) 時，有弟子發出鼾聲。</div>
+          <p class="cpt-item">藉此因緣引出兩個公案：</p>
+          <p class="cpt-num"><span class="num">1)</span> 弟子請佛陀傳法，但怕佛陀吃他的飯。結果，一要傳法就睡覺，不講就不睡覺。</p>
+          <p class="cpt-num"><img class="tiger-float" src="tiger.jfif" alt="老虎"><span class="num">2)</span> 另一個弟子，劉志芳稱為成都的四老虎之一。佛陀說法時，咖啡都喝了，想要把精神扯起，結果佛陀一開始唸咒，就開始睡了。</p>
+        </div>
+        <p class="cpt-close">無論在什麼情況下，說法、聞法時記住要振作起來，要愈聽愈清醒。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 永定法師 -->
+  <section class="slide center" id="p7">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="master">
+      <p class="master-src">資料來自於《多杰羌佛第三世》正法寶典 第三十大類 渡生成就 第 469 頁</p>
+      <div class="master-title">永定法師</div>
+      <img class="master-img" src="永定法師.png" alt="永定法師">
+    </div>
+  </section>
+
+  <!-- 8 永定法師 --- 流程圖 -->
+  <section class="slide center" id="p8">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="flow">
+      <div class="flow-title">永定法師 ( 續 )</div>
+      <div class="flow-wrap">
+        <div class="flow-left">
+          <img src="小偷偷南瓜.jfif" alt="小偷偷南瓜">
+          <img src="救他下來.jfif" alt="救他下來">
+        </div>
+        <div class="flow-right">
+          <div class="timeline">
+            <div class="titem"><span class="tdot">1</span><span class="ttext">燈籠堰求雨</span><span class="tbadge badge-puti">菩提心</span></div>
+            <div class="titem"><span class="tdot">2</span><span class="ttext">中國的低標準時期</span><span class="tbadge badge-puti">菩提心</span></div>
+            <div class="titem"><span class="tdot">3</span><span class="ttext">小偷偷南瓜事件</span><span class="tbadge badge-puti">菩提心</span></div>
+            <div class="titem"><span class="tdot">4</span><span class="ttext">五雷正法掌打妖孤</span><span class="tbadge badge-sheng">聖證量</span></div>
+            <div class="titem"><span class="tdot">5</span><span class="ttext">水庫帳務問題</span><span class="tbadge badge-puti">菩提心</span></div>
+            <div class="titem"><span class="tdot">6</span><span class="ttext">裴銀昌彙報</span><span class="tbadge badge-zheng">正知正見</span></div>
+            <div class="titem"><span class="tdot">7</span><span class="ttext">靜惠山大使館</span><span class="tbadge badge-puti">菩提心</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 永定法師 ( 續 ) --- 水平節點 -->
+  <section class="slide center" id="p9">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="p9">
+      <div class="p9-title">永定法師 ( 續 )</div>
+      <div class="hrow">
+        <div class="hcol">
+          <div class="hnode">
+            <span class="hnum">1</span><span class="htext">燈籠堰求雨</span>
+            <span class="tbadge badge-puti">菩提心</span>
+          </div>
+          <span class="hdn"></span>
+          <div class="detail vtext">
+            <div class="vtxt">
+              <span class="vred">李相臣 ( 李炳勳 )</span><br>
+              <span class="vnum">①</span> 寫狀子來告人不簽<br>
+              <span class="vnum">②</span> 做假證據、假發票、假東西不簽<br>
+              <span class="vnum">③</span> 做害人的事我不簽<br>
+              <span class="vred">只有為大眾的利益，做一切事我都簽</span><br>
+              把身體清洗乾淨，然後拿了一隻新筆來磨起墨來請玉皇大帝降雨。
+            </div>
+          </div>
+        </div>
+        <span class="harrow"></span>
+        <div class="hcol">
+          <div class="hnode">
+            <span class="hnum">2</span><span class="htext">中國的低標準時期</span>
+            <span class="tbadge badge-puti">菩提心</span>
+          </div>
+          <span class="hdn"></span>
+          <div class="detail vtext">
+            <div class="vtxt">這麼多人都沒得吃的，大家都是生命，我吃下去這個飯嗎？他們餓死不如我餓死。</div>
+          </div>
+        </div>
+        <span class="harrow"></span><span class="hmore">…</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 永定法師 ( 續 ) --- 小偷偷南瓜事件 -->
+  <section class="slide center" id="p10">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="p9">
+      <div class="p9-title">永定法師 ( 續 )</div>
+      <div class="hrow">
+        <span class="hmore">…</span><span class="harrow"></span>
+        <div class="hcol">
+          <div class="hnode">
+            <span class="hnum">3</span><span class="htext">小偷偷南瓜事件</span>
+            <span class="tbadge badge-puti">菩提心</span>
+          </div>
+          <span class="hdn"></span>
+        </div>
+        <span class="harrow"></span><span class="hmore">…</span>
+      </div>
+      <div class="imgbox">
+        <img src="小偷偷南瓜.jfif" alt="小偷偷南瓜">
+        <img src="救他下來.jfif" alt="救他下來">
+      </div>
+      <p class="imgquote">賊娃子說：天地之間沒有你這麼好的人!</p>
+    </div>
+  </section>
+
+  <!-- 11 永定法師 ( 續 ) --- 五雷正法掌打妖孤 / 水庫帳務問題 -->
+  <section class="slide center" id="p11">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="p9">
+      <div class="p9-title">永定法師 ( 續 )</div>
+      <div style="position:relative; width:100%;">
+        <div style="position:absolute; left:-70px; top:0; display:flex; align-items:flex-start; gap:6px; z-index:2;"><span class="hmore" style="font-size:16px; margin-top:14px;">…</span><span class="harrow" style="width:30px;"></span></div>
+        <div style="position:absolute; right:-70px; top:0; display:flex; align-items:flex-start; gap:6px; z-index:2;"><span class="harrow" style="width:30px;"></span><span class="hmore" style="font-size:16px; margin-top:14px;">…</span></div>
+        <div class="d11">
+          <div class="hnode"><span class="hnum">4</span><span class="htext">五雷正法掌打妖孤</span><span class="tbadge badge-sheng">聖證量</span></div>
+          <span class="harrow"></span>
+          <div class="hnode"><span class="hnum">5</span><span class="htext">水庫帳務問題</span><span class="tbadge badge-puti">菩提心</span></div>
+          <span class="harrow"></span>
+          <div class="hnode"><span class="hnum">6</span><span class="htext">裴銀昌彙報</span><span class="tbadge badge-zheng">正知正見</span></div>
+
+          <div class="dcell" style="grid-column:3">
+            <span class="hdn"></span>
+            <div class="detail vtext narrow"><div class="vtxt">帳對不起來，但事實上是永定法師自掏腰包買紅藥水，給修水庫的人塗擦，後來離清真相，稅務的很感動</div></div>
+          </div>
+          <div class="dcell" style="grid-column:5">
+            <span class="hdn"></span>
+            <div class="detail vtext narrow w6">
+              <div class="vtxt">◎ 自以為事的，把自己的工錢拿給永定法師的愛人，結果被罵了一頓。( 佛陀說：他是沒問題的，因為他是聖者，因為他夫人是無惡不作的，不能在扶持她，會有無始的罪業，所以是正知正見的。)</div>
+              <div class="vtxt">◎ 做了兩次夢，夢中有人來跟他說 不好好學佛，不然會變豬 ( 但心理上很不服氣 )</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 12 永定法師 --- 靜惠山大使館 / 總結 -->
+  <section class="slide center" id="p12">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="p9">
+      <div class="p9-title">永定法師</div>
+      <div style="position:relative; width:100%;">
+        <div style="position:absolute; left:-70px; top:0; display:flex; align-items:flex-start; gap:6px; z-index:2;"><span class="hmore" style="font-size:16px; margin-top:14px;">…</span><span class="harrow" style="width:30px;"></span></div>
+      </div>
+      <div style="display:flex; gap:24px; align-items:flex-start; width:100%;">
+        <div style="flex:0 0 260px; display:flex; flex-direction:column; align-items:center; gap:10px;">
+          <div class="hnode"><span class="hnum">7</span><span class="htext">靜惠山大使館</span><span class="tbadge badge-puti">菩提心</span></div>
+          <span class="hdn"></span>
+          <div class="detail vtext narrow" style="position:relative; left:auto; transform:none; top:auto; margin:0 auto;"><div class="vtxt">◎ 跟玉皇大帝商量，三個月全部都規定了哪天下雨、啥子時候下、啥子時候收、啥子時候出太陽。</div></div>
+        </div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
+          <div class="teaching p12-sum" style="padding:20px 28px;">
+            <div style="font-size:22px; font-weight:700; color:#7c2b12; letter-spacing:.12em; text-align:center; padding-bottom:12px; margin-bottom:14px; border-bottom:1px solid rgba(184,148,46,.4);">總結</div>
+            <p style="font-size:16px; line-height:1.85; color:#4a3a28; text-align:justify;">余香蓮當時在跟 佛陀說他的兄弟的事情時，依此因緣 佛陀說了很多個公案，到最後回到原本的主軸。因之前永定法師，曾經跟 佛陀求法，但 佛陀慈悲看他吃常素，因為當時永定法師身體非常的垮，要叫他吃肉，但永定法師以對待眾生的慈悲為最高標準，他寧願自己墮落都不吃眾生的肉，結果就不學法了，就離開了。</p>
+            <p style="font-size:16px; line-height:1.85; color:#4a3a28; text-align:center; margin-top:8px;">( 佛陀原本是想教他修內功。因為可以超渡眾生，以後當了菩薩再還 )</p>
+            <p style="font-size:16px; line-height:1.85; color:#4a3a28; text-align:justify; margin-top:8px;">後來余香蓮通知永定法師，皈依佛陀，並傳了法。</p>
+          </div>
+          <div style="border:1px solid rgba(184,148,46,.45); border-radius:16px; background:rgba(212,168,83,.08); padding:12px 18px;">
+            <p style="font-size:14px; color:#7c2b12; font-style:italic; margin-bottom:6px; text-align:left;">資料來源：第三世多杰羌佛 淺釋邪惡見和錯誤知見 — 之錯誤知見第二十六條</p>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+              <span class="tbadge badge-puti">菩提心</span>
+              <span class="tbadge badge-sheng">聖證量</span>
+            </div>
+            <p style="font-size:14px; line-height:1.8; color:#4a3a28; text-align:justify;"><span style="font-weight:700; font-size:18px;">第二十六條，認無聖證量菩提心者為真聖。</span>沒有聖證量，沒有菩提心，但是由於此人宣講攝受動聽，加之世人不通經論，一時誤鑒，就認為這種人就是真聖者，這是錯誤的。真聖者必須要有聖證量，還要有菩提心，兩者缺一不可。</p>
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- 13 李孝蓮鐵案 -->
+  <section class="slide center" id="p13">
+    <div class="pg-header">黃石公園之行說法 第四卷 永定法師及李孝蓮等之鐵案</div>
+    <div class="imgtext" style="align-items:center;">
+      <figure class="imgtext-fig" style="transform:translateY(30px);">
+        <img src="李孝蓮示意圖.png" alt="李孝蓮示意圖" style="max-height:420px;">
+      </figure>
+      <div class="teaching cpt" style="flex:1;">
+        <div class="teaching-title">李孝蓮鐵案</div>
+        <div class="teaching-body">
+          <div class="cpt-group">
+            <div class="cpt-sub"><span class="cpt-mark"></span>媳婦瘧待婆婆 ( 雷神教訓 )</div>
+            <div class="cpt-sub"><span class="cpt-mark"></span>割股救母</div>
+          </div>
+          <div class="teaching-note" style="margin-top:24px;">--- 佛陀講的這公案要讓我們知道，這都是我們的師兄姐，都是活生生的事情，一切我們都要為眾生做事情。我們要走向佛國，我們要拿出一個純靜的心來感動天地、感動方神地神、感動諸佛菩薩。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<button class="arrow prev" onclick="go(-1)">‹</button>
+<button class="arrow next" onclick="go(1)">›</button>
+<div class="nav" id="dots"></div>
+<div class="hint">← → 鍵盤翻頁｜輸入數字 + Enter 跳頁</div>
+<div id="pageInput" style="position:absolute; bottom:50px; left:50%; transform:translateX(-50%); background:rgba(74,53,32,.85); color:#fff; font-size:16px; padding:6px 16px; border-radius:8px; display:none; z-index:10; pointer-events:none;"></div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const dots=document.getElementById('dots');
+  const pageInput=document.getElementById('pageInput');
+  slides.forEach((_,i)=>{const b=document.createElement('button');b.className='dot-btn';b.onclick=()=>show(i);dots.appendChild(b);});
+  slides.forEach((s,i)=>{if(i===0)return;const pg=document.createElement('div');pg.className='page-num';pg.textContent=(i+1)+' / '+slides.length;s.appendChild(pg);});
+  let cur=0;
+  let numBuf='';
+  let numTimer=null;
+  function show(i){
+    slides.forEach(s=>s.classList.remove('active'));
+    dots.querySelectorAll('.on').forEach(d=>d.classList.remove('on'));
+    dots.children[i].classList.add('on');
+    slides[i].classList.add('active');
+    cur=i;
+  }
+  function go(d){show(Math.min(slides.length-1,Math.max(0,cur+d))); }
+  document.addEventListener('keydown',e=>{
+    if(e.key>='0'&&e.key<='9'){
+      numBuf+=e.key;
+      pageInput.textContent='第 '+numBuf+' 頁';
+      pageInput.style.display='block';
+      clearTimeout(numTimer);
+      numTimer=setTimeout(()=>{numBuf='';pageInput.style.display='none';},2000);
+      return;
+    }
+    if(e.key==='Enter'&&numBuf!==''){
+      const n=parseInt(numBuf,10);
+      if(n>=1&&n<=slides.length) show(n-1);
+      numBuf='';
+      pageInput.style.display='none';
+      clearTimeout(numTimer);
+      return;
+    }
+    if(e.key==='Escape'){numBuf='';pageInput.style.display='none';clearTimeout(numTimer);return;}
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='Enter')go(1);
+    if(e.key==='ArrowLeft')go(-1);
+  });
+  show(0);
+</script>
+</body>
+</html>
