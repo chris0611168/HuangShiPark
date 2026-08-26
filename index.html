@@ -17,8 +17,9 @@
     display:flex; align-items:center; justify-content:center;
     overflow:hidden; line-height:1.75; user-select:none;
   }
-  .deck{position:relative; width:100vw; height:100vh;
-    filter:drop-shadow(0 22px 45px rgba(74,53,32,.28)); border-radius:18px; overflow:hidden;}
+  .deck{position:relative; width:1080px; height:620px;
+    filter:drop-shadow(0 22px 45px rgba(74,53,32,.28)); border-radius:18px; overflow:hidden;
+    transform-origin:top left;}
   .slide{position:absolute; inset:0; padding:56px 74px; display:flex; flex-direction:column;
     background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%);
     border:4px solid rgba(184,148,46,.7);
@@ -569,6 +570,17 @@
 <div id="pageInput" style="position:absolute; bottom:50px; left:50%; transform:translateX(-50%); background:rgba(74,53,32,.85); color:#fff; font-size:16px; padding:6px 16px; border-radius:8px; display:none; z-index:10; pointer-events:none;"></div>
 
 <script>
+  const deck=document.getElementById('deck');
+  function scaleDeck(){
+    const sx=window.innerWidth/1080;
+    const sy=window.innerHeight/620;
+    const s=Math.min(sx,sy);
+    deck.style.transform='scale('+s+')';
+    deck.style.marginLeft=((window.innerWidth-1080*s)/2)+'px';
+    deck.style.marginTop=((window.innerHeight-620*s)/2)+'px';
+  }
+  scaleDeck();
+  window.addEventListener('resize',scaleDeck);
   const slides=[...document.querySelectorAll('.slide')];
   const dots=document.getElementById('dots');
   const pageInput=document.getElementById('pageInput');
