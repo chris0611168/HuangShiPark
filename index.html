@@ -104,6 +104,17 @@
   .arrow.prev{left:22px;} .arrow.next{right:22px;}
   .hint{position:absolute; bottom:26px; right:36px; font-size:12px; color:#a99a7e;}
   .footer-txt{position:absolute; bottom:26px; left:36px; font-size:12px; color:#a99a7e;}
+  #lockOverlay{position:fixed; inset:0; background:radial-gradient(1200px 800px at 50% -10%, #ffe9c2 0%, #f4e6cf 45%, #efe0c6 100%);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; z-index:9999;}
+  #lockOverlay .lock-box{text-align:center;}
+  #lockOverlay h2{font-size:28px; color:#7c2b12; margin-bottom:20px; letter-spacing:.1em;}
+  #lockOverlay input{width:200px; padding:10px 16px; font-size:18px; border:2px solid var(--gold);
+    border-radius:8px; background:rgba(255,253,246,.9); color:var(--ink); text-align:center; outline:none;}
+  #lockOverlay input:focus{border-color:#7c2b12;}
+  #lockOverlay .lock-btn{margin-top:14px; padding:8px 28px; font-size:16px; background:var(--gold);
+    color:#fff; border:none; border-radius:8px; cursor:pointer; letter-spacing:.08em;}
+  #lockOverlay .lock-btn:hover{background:#7c2b12;}
+  #lockOverlay .lock-err{margin-top:10px; font-size:14px; color:#8c2f2f; display:none;}
 
   /* ---- cover: 白底，還願精舍置頂、葉子在右、標題置中 ---- */
   #cover{background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%); overflow:hidden; display:flex; flex-direction:column; align-items:center; justify-content:center;}
@@ -242,6 +253,15 @@
 </style>
 </head>
 <body>
+<div id="lockOverlay">
+  <div class="lock-box">
+    <h2>請輸入密碼</h2>
+    <input type="password" id="lockPwd" placeholder="密碼" autofocus>
+    <br>
+    <button class="lock-btn" onclick="checkPwd()">確認</button>
+    <div class="lock-err" id="lockErr">密碼錯誤，請再試一次</div>
+  </div>
+</div>
 <div class="deck" id="deck">
 
   <!-- 1 封面 -->
@@ -576,6 +596,18 @@
     if(e.key==='ArrowLeft')go(-1);
   });
   show(0);
+  function checkPwd(){
+    const input=document.getElementById('lockPwd');
+    const err=document.getElementById('lockErr');
+    if(input.value==='20260829'){
+      document.getElementById('lockOverlay').style.display='none';
+    }else{
+      err.style.display='block';
+      input.value='';
+      input.focus();
+    }
+  }
+  document.getElementById('lockPwd').addEventListener('keydown',e=>{if(e.key==='Enter')checkPwd();});
 </script>
 </body>
 </html>
