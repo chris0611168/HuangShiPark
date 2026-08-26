@@ -21,13 +21,13 @@
     filter:drop-shadow(0 22px 45px rgba(74,53,32,.28)); border-radius:18px; overflow:hidden;}
   .slide{position:absolute; inset:0; padding:56px 74px; display:flex; flex-direction:column;
     background:linear-gradient(160deg,#fffdf6 0%, #fbf4e6 100%);
-    border:3px solid rgba(184,148,46,.6);
+    border:4px solid rgba(184,148,46,.7);
     opacity:0; transform:translateX(40px) scale(.98); transition:.6s ease; pointer-events:none;}
   .slide.active{opacity:1; transform:none; pointer-events:auto;}
   /* decorative gold top border */
   .slide::before{content:""; position:absolute; left:0; right:0; top:0; height:8px;
     background:linear-gradient(90deg,transparent,var(--gold-lt),var(--gold),var(--gold-lt),transparent);}
-  .slide::after{content:""; position:absolute; inset:14px; border:1px solid rgba(184,148,46,.28);
+  .slide::after{content:""; position:absolute; inset:14px; border:2px solid rgba(184,148,46,.45);
     border-radius:12px; pointer-events:none;}
   .pg-header{position:absolute; top:20px; left:30px; z-index:3; pointer-events:none;
     font-size:16px; letter-spacing:.08em; color:#a98f5e; font-weight:600;
